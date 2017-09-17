@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>PyConFr 2017 - Mindmap web contrôlée par sms avec Python &amp; Twilio</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/solarized.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+        .reveal section img {
+          border: none;
+          box-shadow: none;
+        }
+        p > code, li > code {
+          color: #D05;
+        }
+        </style>
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-notes="^Note:" data-charset="utf-8">
+                    <textarea data-template>
+## Mindmap web contrôlée par sms
+
+![](telephone-lineage.jpg)
+
+<small>24/09/2017 @ PyConFr</small>
+
+
+
+## TODO
+
+
+
+## Bonjour !
+
+<img src="avatar.jpg" alt="Une image d'avatar" style="border: none; width: 15%">
+
+- <i class="fa fa-map-marker"></i> Nantes
+- <i class="fa fa-pencil"></i> https://chezsoi.org + <i class="fa fa-rss"></i> [<img src="shaarli-icon.png" style="margin: 0; width: 3rem">](https://chezsoi.org/shaarli)
+- <i class="fa fa-code"></i> @ [Voyages-Sncf.com](https://open.voyages-sncf.com)
+
+
+
+## Plan
+- todo
+
+
+
+## That's all folks !
+
+<img alt="Mr. Bean tire avec un pistolet sur une ampoule pour éteindre la lumière" src="MrBeanSwitchOff.gif" style="width: 80%">
+
+                    </textarea data-template>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+
+                history: true,
+
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
