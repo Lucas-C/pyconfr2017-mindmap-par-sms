@@ -1,4 +1,15 @@
 <!doctype html>
+<!--Reveal.js:
+- Press 's' to open speaker-notes pop-up window
+- Press ESC to enter the slide overview- Press 'b' to fade out to black screen
+- Change the background on a slide: <!-- .slide: data-background="#ff0000" -- >
+- PDF export using Chrome: https://github.com/hakimel/reveal.js/#pdf-export
+    + append 'index.html?print-pdf' and scroll to the end before printing
+
+TODO:
+- lien vers web app Python
+- pip install braindump
+-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -38,13 +49,9 @@
                     <textarea data-template>
 ## Mindmap web contrôlée par sms
 
-![](telephone-lineage.jpg)
+<img src="CargoCultFeaturePhone.jpg" alt="Fac-simile de portable en bois" style="height: 30rem">
 
 <small>24/09/2017 @ PyConFr</small>
-
-
-
-## TODO
 
 
 
@@ -58,8 +65,156 @@
 
 
 
-## Plan
-- todo
+## Mon téléphone est stupide
+**Pourquoi ?**
+<ul>
+  <li class="fragment"><span style="color:#2aa198">**zen**</span> : je peux m'en passer, moins de [FOMO](https://fr.wikipedia.org/wiki/Fear_of_missing_out)</li>
+  <li class="fragment"><span style="color:#6c71c4">**économique** </span> : je préfère dépenser mes sous ailleurs</li>
+  <li class="fragment"><span style="color:LimeGreen">**écolo**</span> : resources pour le fabriquer + électricité</li>
+  <li class="fragment"><span style="color:#dc322f">**raison n°1**</span> : j'en perds plusieurs par an</li>
+</ul>
+
+
+
+## Problème : où noter des trucs ?
+- pas d'appli, pas de connexion Internet
+- **brouillons ?** → je les perds tous avec le téléphone,
+et c'est pénible à recopier
+- **notes papier ?** → c'est le bordel, et il faut les recopier...
+
+
+
+## 💡 twilio !
+```python
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+client.messages.create(body=msg, from_=src_number, to=dst_number)
+```
+<small>([exemple complet](https://github.com/Lucas-C/linux_configuration/blob/master/languages/python/send_text_msg_with_twilio.py))</small>
+
+<div class="fragment">
+  <span style="color:#dc322f"><i class="fa fa-exclamation mark"></i> _**Disclaimer**_ <i class="fa fa-exclamation mark"></i></span>
+  [twilio](https://www.twilio.com) n'est pas le seul, il y a aussi: [bandwidth](https://my.bandwidth.com/portal/apidoc/2-x-supported-operations.htm), [bulksms](http://www.bulksms.com/products/sms-api.htm), [nexmo](https://www.nexmo.com/products/sms), [plivo](https://www.plivo.com/sms-api/), [sinch](https://www.sinch.com/products/sms-api/), [tropo](https://www.tropo.com/docs/scripting/quickstarts/sending-text-messages#tabs-4)
+</div>
+
+Note:
+- 1ère utilisation : envoyer un texto à ma copine à Dublin... comme j'avais perdu mon téléphone
+- 2 ans de "Free Trial"
+- utilisation + intensive -> ~30$ par an
+
+
+
+## Fontionne par webhook
+<img src="Piratey-from-wikimedia.png" alt="Capitaine Crochet - le retour" style="max-height: 30rem">
+
+<img src="https://s3.amazonaws.com/com.twilio.prod.twilio-docs/images/sms-http-request-cycle.width-800.gif"
+     alt="Schéma animé expliquant le principe des webhooks"
+     class="fragment" style="position: fixed; bottom: 5%; left: 50%; transform: translateX(-50%);">
+
+
+
+## Où stocker ces notes ?
+
+<img src="git-logo.jpg" style="max-height:10rem">
+
+<img class="fragment" src="gitlab-logo.svg" style="max-height:10rem">
+
+
+Note: les gens hurlent ? oui mais versionning + interface web d'édition !
+
+
+
+## Mise en place
+
+<img src="uwsgi-logo.png" alt="Logo uwsgi" style="width: 20rem">
+
+Note: heroku Ok
+
+
+
+## Démo
+
+<img src="Cute_Kitten_Please.jpg" alt="Logo uwsgi" style="width: 30rem">
+
+
+
+## Très vite...
+<pre style="padding: 5px">
+penser à ...
+ménage
+truc à faire ...
+envoyer <chose> à machin...
+lire cet article de sam&max...
+ménage: urgent
+boulot: oubli pdb ?
+finir pull request Shaarli
+rendre livres à la bibli
+réserver vacs
+contrib wikipédia
+rendre blog accessible
+accrocher le cadre dans l'entrée
+nourrir le chat
+marquepager dernier lien de sebsauvage
+anniv soeur: c'était hier ?
+entretien voiture
+faille sécu: systemshock?
+changer de tél
+blog: suppr. compteur visites -> déprimant
+jdr: tuer les PJs
+ménage: !FAIT QQCH!!
+</pre>
+
+
+
+## 💡 mindmap !
+
+J'utilisais [freeplane](https://www.freeplane.org) : <img src="freeplane-logo-2014.png" alt="Logo de freeplane" style="vertical-align: middle; width: 6rem"> <img src="FreePlane-200-175.png" alt="Logo 2 de reeplane" style="vertical-align: middle; width: 6rem">
+
+<img src="freeplane-mindmap-linxufr-sebsauvage.png" alt="Capture décran de freeplane" style="max-height: 30rem">
+
+
+
+## Oui mais...
+
+- appli de bureau (pas web) en Java
+- ne mange pas de simple fichier texte :(
+
+
+
+## 💡 wisemapping !
+
+<img src="wisemapping-logo.png" style="vertical-align: middle"> <img src="wisemapping-screenshot.png" style="vertical-align: middle">
+
+- open-source
+- utilisé par [Framasoft](https://framasoft.org/)
+- la partie "front" mange des fichiers XML simples
+
+
+
+## Extraction du _viewer_
+
+![](CyanideHappinessCrazyTyping.gif)
+
+- _cf._ [article de blog](https://chezsoi.org/lucas/blog/rendering-deep-text-based-mindmaps-with-wisemapping-and-python.html)
+- <span style="font-size: 1.8rem">https://github.com/Lucas-C/wisemapping-simple-viewer</span>
+
+Note: ça va pas vous intéresser, c'est du JS
+
+
+
+## Conversion .md → .xml
+
+![](kaa-and-mowgli.webp)
+
+- en Python, avec [pyparsing](http://pyparsing.wikispaces.com)
+- `pip install braindump`
+
+Note: pas le meilleur parseur...
+
+
+
+## Démo
+
+<img class="fragment" src="its-alive.gif" alt="Jim Carray saying 'it's alive!'" style="width: 40rem">
 
 
 
