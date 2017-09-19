@@ -208,6 +208,28 @@ Note: ça va pas vous intéresser, c'est du JS
 - en Python, avec [pyparsing](http://pyparsing.wikispaces.com)
 - `pip install braindump`
 
+
+
+## Conversion .md → .xml
+
+Exécutée via `post-receive` hook par Gitlab:
+
+`/var/opt/gitlab/git-data/repositories/$group/$repo.git/custom_hooks`
+
+```
+#!/bin/bash
+cd "$(dirname "${BASH_SOURCE[0]}" )"
+exec > post-receive.log; exec 2>&1
+cd ..
+GITLAB_PUBLIC=/opt/gitlab/embedded/service/gitlab-rails/public
+mindmap=braindump.md
+read old_sha new_sha branch_name
+git show $new_sha:$mindmap > $mindmap
+LANG=fr_FR.UTF-8 wisemapping_txt2xml.py --font-color white $mindmap \
+  > $GITLAB_PUBLIC/wisemapping-simple-viewer/samples/${f%.*}.xml
+rm $mindmap
+```
+
 Note: pas le meilleur parseur...
 
 
