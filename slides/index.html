@@ -76,6 +76,9 @@
 
 <img src="CargoCultFeaturePhone.jpg" alt="Fac-simile de portable en bois" style="height: 30rem">
 
+Note: inspi -> Hubert Sablonnière "Une aventure ultrasonique" Devoxx 2017
+=> il est aussi intéressant de présenter les side-projets et autres expériences farfelues
+
 
 
 ## Bonjour !
@@ -83,8 +86,8 @@
   <img src="avatar.jpg" alt="Une image d'avatar" style="border: none; width: 30%; height: 30%; margin-right: 2rem">
   <div style="display: flex; flex-direction: column; text-align: left">
     <p>**Lucas Cimon**</p>
-    <p><i class="fa fa-pencil"></i> https://chezsoi.org + <i class="fa fa-rss"></i> [<img src="shaarli-icon.png" style="margin: 0; width: 3rem">](https://chezsoi.org/shaarli)</p>
     <p><i class="fa fa-map-marker"></i> [Voyages-Sncf.com Technologies](https://open.voyages-sncf.com)<br>@ Nantes</p>
+    <p><i class="fa fa-pencil"></i> https://chezsoi.org + <i class="fa fa-rss"></i> [<img src="shaarli-icon.png" style="margin: 0; width: 3rem">](https://chezsoi.org/shaarli)</p>
   </div>
 </div>
 
@@ -128,18 +131,17 @@ Note:
 
 
 
-##  
-![](twilio-console.png)
-Note:
-- 1ère utilisation : envoyer un texto à ma copine à Dublin... comme j'avais perdu mon téléphone
-- 2 ans de "Free Trial"
-- utilisation + intensive -> ~30$ par an
-
-
-
 ## webhook ?
 <img src="https://s3.amazonaws.com/com.twilio.prod.twilio-docs/images/sms-http-request-cycle.width-800.gif"
      alt="Schéma animé expliquant le principe des webhooks">
+
+
+
+##  
+![](twilio-console.png)
+Note:
+- 2 ans de "Free Trial"
+- utilisation + intensive -> ~30$ par an
 
 
 
@@ -161,12 +163,6 @@ Les gens hurlent ? oui mais versionning + interface web d'édition !
 Note: + upstart
 Framework-less, lib-less
 Devrait être déployable sur heroku sans souci
-
-
-
-## Démo
-
-<img src="Cute_Kitten_Please.jpg" alt="Logo uwsgi" style="width: 30rem">
 
 
 
@@ -197,6 +193,15 @@ ménage: !FAIT QQCH!!
 </pre>
 
 Note: 1ère version -> pas d'indentation / groupes
+-> montrer apparence du .md maintenant
+
+
+
+## Démo
+<pre style="width: 100%; font-size: 3.2rem">PyConFr.2017
+Salut les charmeurs de serpents !</pre>
+
+<img class="fragment" src="Cute_Kitten_Please.jpg" alt="Logo uwsgi" style="width: 30rem">
 
 
 
@@ -210,8 +215,7 @@ J'utilisais [freeplane](https://www.freeplane.org) : <img src="freeplane-logo-20
 
 ## Oui mais...
 
-- appli de bureau (pas web) en Java
-- ne mange pas de simple fichier texte :(
+appli de bureau (pas web) en Java :(
 
 
 
@@ -223,6 +227,8 @@ J'utilisais [freeplane](https://www.freeplane.org) : <img src="freeplane-logo-20
 - utilisé par [Framasoft](https://framasoft.org/)
 - la partie "front" mange des fichiers XML simples
 
+Note: projet date de 2010, mort depuis 2 ans
+
 
 
 ## Extraction du _viewer_
@@ -232,7 +238,8 @@ J'utilisais [freeplane](https://www.freeplane.org) : <img src="freeplane-logo-20
 - _cf._ [article de blog](https://chezsoi.org/lucas/blog/rendering-deep-text-based-mindmaps-with-wisemapping-and-python.html)
 - <span style="font-size: 1.8rem">https://github.com/Lucas-C/wisemapping-mindmap-viewer</span>
 
-Note: ça va pas vous intéresser, c'est du JS
+Note: ça va pas vous intéresser, c'est du SVG+JS
+Transition: comment transformer .md en .xml ? Re-montrer fichier sur gitlab
 
 
 
@@ -243,11 +250,13 @@ Note: ça va pas vous intéresser, c'est du JS
 - en Python, avec [pyparsing](http://pyparsing.wikispaces.com)
 - `pip install brain_dump`
 
+Note: pas le meilleur parseur...
+
 
 
 ## Conversion .md → .xml
 
-Exécutée via `post-receive` hook par Gitlab:
+Exécutée via _post-receive_ `git` <span style="color:#268bd2">**hook**</span>:
 
 `/var/opt/gitlab/git-data/repositories/$group/$repo.git/custom_hooks`
 
@@ -265,8 +274,6 @@ LANG=fr_FR.UTF-8 wisemapping_txt2xml.py --font-color white $mindmap \
 rm $mindmap
 ```
 
-Note: pas le meilleur parseur...
-
 
 
 ## Démo
@@ -281,6 +288,7 @@ Note: pas le meilleur parseur...
 
 Note: idées pour la suite
 - se passer de Twilio et utiliser une puce GSM ?
+- approche sans code: https://ifttt.com/sms
 
 
 
